@@ -3,12 +3,35 @@
 import fire
 import random
 import string
+from tkinter import *
+import tkinter.ttk as ttl
+from tkinter.font import *
 
-def main(length = 16):
+def gen(length = 16):
     if type(length) == str:
         length = len(length)
     result = ''.join(random.choices(string.ascii_letters, k=length))
     return result
+def graphic():
+    root = Tk()
+    root.geometry("800x600")
+    root.title("Application")
+
+    root.grid_columnconfigure(0, weight=1)
+
+    f = Font(size=20, family="Roboto")
+
+    Label(root, text="rstring", font=f).grid(row=0)
+    Label(root, text="Length: ").grid(row=1)
+    lengthEntry = Entry(root)
+    lengthEntry.grid(row=2)
+    genLabel = Label()
+    genLabel.grid(row=4)
+    def genLabel(length):
+        genLabel.config(text=''.join(random.choices(string.ascii_letters, k=length)))
+    Button(root, text="Generate", command=lambda:genLabel(int(lengthEntry.get()))).grid(row=3)
+
+    root.mainloop()
 
 if __name__ == '__main__':
-    fire.Fire(main)
+    fire.Fire()
