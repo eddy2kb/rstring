@@ -15,7 +15,7 @@ def gen(length = 16):
 def graphic():
     root = Tk()
     root.geometry("800x600")
-    root.title("Application")
+    root.title("rstring")
 
     root.grid_columnconfigure(0, weight=1)
 
