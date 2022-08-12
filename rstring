@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+
+import fire
+import requests
+import random
+import string
+
+def main(length = 16):
+    if type(length) == str:
+        length = len(length)
+    result = ''.join(random.choices(string.ascii_letters, k=length))
+    return result
+
+if __name__ == '__main__':
+    fire.Fire(main)
