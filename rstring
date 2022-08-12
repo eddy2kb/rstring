@@ -27,9 +27,9 @@ def graphic():
     lengthEntry.grid(row=2)
     genLabel = Label()
     genLabel.grid(row=4)
-    def genLabel(length):
+    def genLabelfun(length):
         genLabel.config(text=''.join(random.choices(string.ascii_letters, k=length)))
-    Button(root, text="Generate", command=lambda:genLabel(int(lengthEntry.get()))).grid(row=3)
+    Button(root, text="Generate", command=lambda:genLabelfun(int(lengthEntry.get()))).grid(row=3)
 
     root.mainloop()
 
