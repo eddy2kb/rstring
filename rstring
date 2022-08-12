@@ -27,9 +27,15 @@ def graphic():
     lengthEntry.grid(row=2)
     genLabel = Label()
     genLabel.grid(row=4)
+    def copy_text_to_clipboard(txt):
+       root.clipboard_clear()
+       root.clipboard_append(txt)
     def genLabelfun(length):
-        genLabel.config(text=''.join(random.choices(string.ascii_letters, k=length)))
+        global gResult
+        gResult = ''.join(random.choices(string.ascii_letters, k=length))
+        genLabel.config(text=gResult)
     Button(root, text="Generate", command=lambda:genLabelfun(int(lengthEntry.get()))).grid(row=3)
+    Button(root, text="Copy To Clipboard", command=lambda:copy_text_to_clipboard(gResult)).grid(row=5)
 
     root.mainloop()
 
